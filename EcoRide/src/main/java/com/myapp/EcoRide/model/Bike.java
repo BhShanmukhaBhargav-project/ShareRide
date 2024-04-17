@@ -53,11 +53,11 @@ public class Bike {
         this.availability = availability;
     }
 
-    public void setUserZNumber(String zNumber) {
-        this.user.setzNumber(zNumber);
+    public User getUser() {
+        return user;
     }
 
-    public void setLocationAfterDropoff(String location) {
-        this.location = location;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

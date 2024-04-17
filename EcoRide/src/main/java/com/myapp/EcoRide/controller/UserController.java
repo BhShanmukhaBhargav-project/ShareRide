@@ -20,7 +20,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User user) {
         User existingUser = userService.findByzNumber(user.getzNumber());
-        if (existingUser != null && (existingUser.getPassword() == user.getPassword())) {
+        if (existingUser != null && (existingUser.getPassword().equals(user.getPassword()))) {
             return ResponseEntity.ok("Login successful!");
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials. Please try again.");

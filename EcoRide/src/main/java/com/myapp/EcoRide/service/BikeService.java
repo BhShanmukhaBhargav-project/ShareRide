@@ -16,20 +16,4 @@ public class BikeService {
     public List<Bike> getAvailableBikes() {
         return bikeRepo.findByAvailabilityTrue();
     }
-
-    public void updateZNumberAfterPickup(int id, String zNumber) {
-        Bike bike = bikeRepo.findById(id).orElse(null);
-        if (bike != null && bike.isAvailability()) {
-            bike.setUserZNumber(zNumber);
-            bikeRepo.save(bike);
-        }
-    }
-
-    public void updateLocationAfterDropoff(int id, String location) {
-        Bike bike = bikeRepo.findById(id).orElse(null);
-        if (bike != null && !bike.isAvailability()) {
-            bike.setLocationAfterDropoff(location);
-            bikeRepo.save(bike);
-        }
-    }
 }
